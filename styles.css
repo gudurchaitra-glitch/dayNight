@@ -1,0 +1,40 @@
+* { box-sizing: border-box; }
+:root { color-scheme: dark; }
+body {
+  margin: 0; min-height: 100vh; display: grid; place-items: center;
+  background: radial-gradient(ellipse at center, #171c43 0%, #07091d 72%);
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif; color: #e8f4ff;
+  padding: 24px;
+}
+.stage { width: min(1200px, 96vw); aspect-ratio: 16 / 9; overflow: hidden; border-radius: 22px; box-shadow: 0 24px 90px #0009, 0 0 50px #4b3bff22; }
+.scene { width: 100%; height: 100%; display: block; }
+.controls { width: min(760px, 96vw); display: flex; gap: 16px; align-items: center; flex-wrap: wrap; margin-top: 20px; color: #bfc9ed; font-size: 14px; }
+button { border: 1px solid #5264a0; color: #f4f7ff; background: #171d42; border-radius: 999px; padding: 10px 17px; cursor: pointer; }
+button:hover { background: #252d5c; }
+input[type="range"] { flex: 1; accent-color: #40e7ff; min-width: 150px; }
+output { min-width: 74px; color: #71efff; }
+
+/* The scene is authored as named SVG groups. These CSS variables drive the time-of-day palette. */
+#sky-fill { transition: fill 1s linear; }
+#sun, #moon, #stars, #clouds, #night-windows, #neon-reflections, #night-overlay, #vehicle-trails, #city-haze, #building-windows, #billboards { transition: opacity 1s linear, filter 1s linear; }
+.cloud-a { animation: drift-a 38s linear infinite; }
+.cloud-b { animation: drift-b 48s linear infinite; }
+.cloud-c { animation: drift-c 55s linear infinite; }
+.turbine-blades { transform-box: view-box; transform-origin: 575px 210px; animation: rotate 8s linear infinite; }
+.vehicle-a { animation: fly-a 13s linear infinite; }
+.vehicle-b { animation: fly-b 17s linear infinite; }
+#left-arm { transform-box: fill-box; transform-origin: 100% 15%; animation: type-left .55s ease-in-out infinite alternate; }
+#right-arm { transform-box: fill-box; transform-origin: 0% 15%; animation: type-right .62s ease-in-out infinite alternate; }
+#dashboard-ui { animation: dashboard-pulse 3s ease-in-out infinite alternate; }
+@keyframes drift-a { from { transform: translateX(-35px); } to { transform: translateX(70px); } }
+@keyframes drift-b { from { transform: translateX(40px); } to { transform: translateX(-65px); } }
+@keyframes drift-c { from { transform: translateX(-25px); } to { transform: translateX(50px); } }
+@keyframes rotate { to { transform: rotate(360deg); } }
+@keyframes fly-a { 0% { transform: translate(280px, 160px); } 100% { transform: translate(700px, 120px); } }
+@keyframes fly-b { 0% { transform: translate(780px, 250px); } 100% { transform: translate(300px, 205px); } }
+@keyframes type-left { from { transform: rotate(-3deg) translateY(0); } to { transform: rotate(4deg) translateY(3px); } }
+@keyframes type-right { from { transform: rotate(3deg) translateY(2px); } to { transform: rotate(-4deg) translateY(0); } }
+@keyframes dashboard-pulse { from { opacity: .75; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; }
+}
