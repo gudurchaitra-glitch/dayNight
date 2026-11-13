@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#080d20" />
+  <title>Day to Night — Workspace</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="scene-shell">
+    <div class="scene" aria-label="A girl seated at her desk, working in front of a city window as daylight changes into night">
+      <!-- This is the original generated animation, preserving the girl's exact seated pose. -->
+      <img id="sceneAnimation" src="assets/day-to-night.gif" alt="Girl sitting at a desk, working while the city outside transitions from day to night" />
+      <div class="vignette" aria-hidden="true"></div>
+    </div>
+    <div class="controls" aria-label="Animation controls">
+      <span class="scene-label">A day at the desk</span>
+      <div class="control-actions">
+        <button id="restart" type="button" aria-label="Restart animation" title="Restart">↺</button>
+        <button id="toggle" type="button" aria-label="Pause animation" title="Pause">Ⅱ</button>
+      </div>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
